@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assignment</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+
+<style> 
+
+body {
+    background-image: url("images/background.jpg");
+}
+
+div {
+    background-color : transparent;
+    background: lightblue;
+    position: relative;
+    -webkit-animation: myfirst 5s infinite; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation: myfirst 5s infinite;
+    animation-direction: alternate;
+}
+
+
+@-webkit-keyframes myfirst {
+    background-image:images/static-background.jpg;
+    0%   {background: lightblue; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 200px; top: 0px;}
+    50%  {background: blue; left: 200px; top: 200px;}
+    75%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+
+@keyframes myfirst {
+    0%   {background: lightblue; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 200px; top: 0px;}
+    50%  {background: blue; left: 200px; top: 200px;}
+    75%  {background: green; left: 0px; top: 200px;}
+    100% {background: lightblue; left: 0px; top: 0px;}
+}
+</style>
+</head>
+
+<body>	
+<header class="header" >
+	<a href="http://moodle.harrisburgu.edu/my/" class="logo"><img src="images/logo.jpg" alt=""/></a>
+		<nav class="navbar clearfix">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About me</a></li>
+				<li><a href="contactme.html">Contact me</a></li>
+				<li><a href="team.html"> Team Register</a></li>
+				
+			</ul>
+		</nav>
+	</header>
+<div class="container">
+	
+	<div class="banner">
+		<img src="images/background.jpg" alt="navbar" width="1000">
+	</div>
+	<div class="content">
+	
+		<p>Welcome to My WebPage</p>
+		<p>Hi all, this is the home page of mine and if you want to know more about me please visit about me section of the same site.</p>
+	</div>
+	<footer class="footer clearfix">
+		<div class="social-media">
+			<ul>
+				<li><a href="https://www.facebook.com/pages/Harrisburg-State-University/1393160594267218?fref=ts"><img src="images/fb.png" alt=""/></a></li>
+				<li><a href="https://moodle.harrisburgu.edu/login/index.php"><img src="images/google-plus-icon.png" alt=""/></a></li>
+				<li><a href="#"><img src="images/twitter.png" alt=""/></a></li>
+			</ul>
+		</div>
+	</footer>
+</div>
+</body>
+
+</html>
