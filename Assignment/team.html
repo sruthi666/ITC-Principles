@@ -1,35 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Text Input Control</title>
+    <title>Text Input Control</title>
+    <script type="text/javascript">
+        function SubmitForm() {
+            ClearValidation();
+            var isValid = true;
+            var fName = document.getElementsByName("first_name")[0].value;
+            var lName = document.getElementsByName("last_name")[0].value;
+            var gender = document.getElementsByName("gender")[0].value;
+            var education = document.getElementsByName("education")[0].value;
+            var mobile = document.getElementsByName("mobile")[0].value;
+
+            if (fName.length == 0 || fName.length < 3) {
+                if (fName.length > 0 && fName.length < 3) {
+                    document.getElementById("fNameVal").textContent = "Please Enter Valid First Name";
+                }
+                document.getElementById("fNameVal").style.visibility = "visible";
+                isValid = false;
+            }
+            if (lName.length == 0 || lName.length < 3) {
+                if (lName.length > 0 && lName.length < 3) {
+                    document.getElementById("lNameVal").textContent = "Please Enter Valid Last Name";
+                }
+                document.getElementById("lNameVal").style.visibility = "visible";
+                isValid = false;
+            }
+            
+            if (gender.length == 0) {
+                document.getElementById("genderVal").style.visibility = "visible";
+                isValid = false;
+            }
+            if (education.length == 0) {
+                document.getElementById("eduVal").style.visibility = "visible";
+                isValid = false;
+            }
+            if (mobile.length == 0 || mobile.length != 12) {
+                var regexPhoneNo = /^([0-9]{3})?[-]?([0-9]{3})[-]?([0-9]{4})$/; 
+                if (mobile.length > 0 && ( mobile.length != 12 || !mobile.Match(regexPhoneNo))){
+                    document.getElementById("mobileVal").textContent = "Please Enter Mobile Number like 000-000-0000";
+                }
+                document.getElementById("mobileVal").style.visibility = "visible";
+                isValid = false;
+            }
+            event.returnValue = isValid;
+            return isValid;
+        }
+        function ClearValidation() {
+            document.getElementById("fNameVal").textContent = "*";
+            document.getElementById("lNameVal").textContent = "*";
+            document.getElementById("genderVal").textContent = "*";
+            document.getElementById("eduVal").textContent = "*";
+            document.getElementById("mobileVal").textContent = "*";
+
+            document.getElementById("fNameVal").style.visibility = "hidden";
+            document.getElementById("lNameVal").style.visibility = "hidden";
+            document.getElementById("genderVal").style.visibility = "hidden";
+            document.getElementById("eduVal").style.visibility = "hidden";
+            document.getElementById("mobileVal").style.visibility = "hidden";
+        }
+    </script>
 </head>
 <body>
-<div class="container">
-	<header class="header">
-		<a href="http://harrisburgu.edu/" class="logo"><img src="images/logo.jpg" alt=""/></a>
-		<nav class="navbar clearfix">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">About me</a></li>
-				<li><a href="contactme.html">Contact me</a></li>
-				<li><a href="team.html"> Team Register</a></li>
-			</ul>
-		</nav>
-	</header>
-	</div>
-<form >
-First name:  <input type="text" name="first_name"/>
-<br>
-Last name:   <input type="text" name="last_name"/>
-<br>
-Gender:      <input type="text" name="gender"/>
-<br>
-Education:   <input type="text" name="education"/>
-<br>
-Mobile :     <input type="text" name="mobile"/>
-<br>
-Submit :     <input type="submit" name="submit"/>
-</form>
-</form>
+    <div class="container">
+        <header class="header">
+            <a href="http://harrisburgu.edu/" class="logo"><img src="images/logo.jpg" alt="" /></a>
+            <nav class="navbar clearfix">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About me</a></li>
+                    <li><a href="contactme.html">Contact me</a></li>
+                    <li><a href="team.html"> Team Register</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <form>
+        <label style="width:100px;"> First name: </label> <input type="text" name="first_name" /><label id="fNameVal" style="visibility:hidden;color:red;">*</label><br/>
+        <label style="width:100px;"> Last name: </label> <input type="text" name="last_name" /><label id="lNameVal" style="visibility:hidden;color:red;">*</label><br/>
+        <label> Gender:  </label> <input type="text" name="gender" /><label id="genderVal" style="visibility:hidden;color:red;">*</label><br />
+        <label> Education: </label> <input type="text" name="education" /><label id="eduVal" style="visibility:hidden;color:red;">*</label><br />
+        <label> Mobile: </label> <input type="text" name="mobile" /><label id="mobileVal" style="visibility:hidden;color:red;">*</label><br />
+        Submit: <input type="submit" name="submit" onclick="SubmitForm()" />
+    </form>
+
 </body>
 </html>
